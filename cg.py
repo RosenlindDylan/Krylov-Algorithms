@@ -8,6 +8,7 @@ def generateB(size):
     return np.random.rand(size)
 
 b = generateB(10)
+print('the target vector is ' + str(b))
 
 # an example tolerance for error
 tol = 10**(-10)
@@ -31,23 +32,23 @@ x = np.zeros(10)
 
 def CGSolver(A, b, x, tol):
     # initial conditions
-    residual = b - np.dot(A, x)
-    v = residual
-    innerResidual = np.linalg.norm(residual)
+    r = b - np.dot(A, x)
+    v = r
+    rho = np.linalg.norm(r)
     
     # runs while the error is greater than specified tolerance
-    while np.sqrt(innerResidual) > tol:
+    while np.sqrt(rho) > tol:
         w = np.dot(A, v) # this is the operation that would be done in the memristive array
-        alpha = innerResidual / np.dot(v, w)
+        alpha = rho / np.dot(v, w)
 
         x = x + np.dot(alpha, v)
-        residual = residual - np.dot(alpha, w)
-        innerResidualNew = np.dot(residual, residual)
-        v = residual + (innerResidualNew/innerResidual)*v
-        innerResidual = innerResidualNew
+        r = r - np.dot(alpha, w)
+        rhoNew = np.dot(r, r)
+        v = r + (rhoNew/rho)*v
+        rho = rhoNew
     return x
 
 y = CGSolver(A,b,x,tol)
 
-print("this is the other method solution vector" + str(y))
-print("and checking gives" + str(A @ y))
+print("the output guess vector is " + str(y))
+print("checking with the matrix A gives " + str(A @ y))
