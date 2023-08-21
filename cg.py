@@ -12,9 +12,11 @@ def CGSolver(A, b, x, tol,itMax):
             final guess vector (x) found once the tolerance or number of iterations is reached
 
         References:
-            legallo
-            https://www.cs.cmu.edu/~quake-papers/painless-conjugate-gradient.pdf
-            strang - files
+            Gallo, M. L., Sebastian, A., et. al (2018). Mixed-precision in-memory computing. 
+                Nature Electronics. https://doi.org/10.1038/s41928-018-0054-8
+            Shewchuk, J. (1994). An introduction to the conjugate gradient method without the agonizing pain.
+                https://www.semanticscholar.org/paper/An-Introduction-to-the-Conjugate-Gradient-Method-Shewchuk/
+            Mathematical Methods for Engineers II- Krylov Subspaces and Conjugate Gradients : Gilbert Strang 
     '''
 
     # initial conditions
