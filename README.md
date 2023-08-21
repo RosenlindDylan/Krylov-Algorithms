@@ -1,1 +1,1 @@
-Implementations of Conjugate Gradient (CG) and GMRES (Generalized minimal residual method, coming soon) Krylov subspace iterative methods
+Implementations of Conjugate Gradient (CG) and GMRES (Generalized minimal residual method) Krylov subspace iterative methods
